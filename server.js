@@ -10,6 +10,7 @@ var router = express.Router();
 require('./db/db');
 require('./db/seed');
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //main home route for the site
@@ -20,6 +21,8 @@ app.use('/api', router);
 
 
 //API Routes
+
+//GET 
 router.get('/todos', function (req, res){
 	Todo.find({}, function(err, todos){
 		if(err){
@@ -29,7 +32,19 @@ router.get('/todos', function (req, res){
 	});
 });
 
-//TODO: add POST route to create new extries
+//POST
+router.post('/todos', function(req, res){
+	var todo = req.body;
+	console.log(todo);
+	Todo.create(todo, function(err, todo){
+		if(err){
+			return console.log(err);
+		}
+		res.json({'todo': todo, message: "todo created"});
+	});
+});
+
+
 //TODO: add PUT route to update entries
 //TODO; add Delete route
 
