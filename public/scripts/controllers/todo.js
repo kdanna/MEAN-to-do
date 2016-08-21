@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 angular.module('todoListApp')
 .controller('todoCtrl', function($scope, dataService) {
@@ -9,10 +9,18 @@ angular.module('todoListApp')
   
   $scope.saveTodos = function() {
     var filteredTodos = $scope.todos.filter(function(todo){
+      console.log("this is the filteredTodos var:"+filteredTodos);
       if(todo.edited) {
-        return todo
-      };
-    })
-    dataService.saveTodos(filteredTodos);
-  }; 
-});
+        return todo;
+      }
+    });
+  dataService.saveTodos(filteredTodos)
+  .finally($scope.resetTodoState());
+    };
+
+    $scope.resetTodoState = function() {
+        $scope.todos.forEach(function(todo) {
+           todo.edited = false;
+        });
+    };
+  });
