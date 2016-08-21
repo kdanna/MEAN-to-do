@@ -2,9 +2,13 @@
 
 var express = require('express');
 var mongoose = require('mongoose');
+var Todo = require('./db/models/todo');
 var bodyParser = require('body-parser');
 var app     = express();
 var router = express.Router();
+
+require('./db/db');
+require('./db/seed');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,7 +21,12 @@ app.use('/api', router);
 
 //API Routes
 router.get('/todos', function (req, res){
-	res.json({todos: [{"name": "swim"}]});
+	Todo.find({}, function(err, todos){
+		if(err){
+			return console.log(err);
+		}
+		res.json({todos: todos});
+	});
 });
 
 //TODO: add POST route to create new extries
