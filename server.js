@@ -20,7 +20,7 @@ app.use('/', express.static('public'));
 app.use('/api', router);
 
 
-//API Routes
+//API Routes (Grabbing info from the database)
 
 //GET 
 router.get('/todos', function (req, res){
@@ -44,8 +44,22 @@ router.post('/todos', function(req, res){
 	});
 });
 
+//PUT
+router.put('/todos/:id', function(req, res) {
+  var id = req.params.id;
+  var todo = req.body;
+  if (todo && todo._id !== id) {
+    return res.status(500).json({ err: "Ids don't match!" });
+  }
+  Todo.findByIdAndUpdate(id, todo, {new: true}, function(err, todo) {
+    if (err) {
+      return res.status(500).json({ err: err.message });
+    }
+    res.json({ 'todo': todo, message: 'Todo Updated' });
+  });
+});
 
-//TODO: add PUT route to update entries
+
 //TODO; add Delete route
 
 
