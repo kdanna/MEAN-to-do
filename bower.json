@@ -1,0 +1,20 @@
+{
+  "name": "mean-todo",
+  "description": "The Angular Basics course is taught in workspaces.  This is the code for the final course app.",
+  "main": "server.js",
+  "authors": [
+    "kdanna <kayce.danna@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/kdanna/MEAN-to-do",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
