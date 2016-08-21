@@ -1,0 +1,22 @@
+{
+  "name": "mean-todo",
+  "version": "1.0.0",
+  "description": "The Angular Basics course is taught in workspaces.  This is the code for the final course app.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdanna/MEAN-to-do.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kdanna/MEAN-to-do/issues"
+  },
+  "homepage": "https://github.com/kdanna/MEAN-to-do#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
