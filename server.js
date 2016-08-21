@@ -17,7 +17,7 @@ app.use('/api', router);
 
 //API Routes
 router.get('/todos', function (req, res){
-	res.json({todos: []});
+	res.json({todos: [{"name": "swim"}]});
 });
 
 //TODO: add POST route to create new extries
