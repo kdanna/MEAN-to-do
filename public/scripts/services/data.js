@@ -18,7 +18,7 @@ angular.module('todoListApp')
     	var request;
     	if(!todo._id){
     		request = $http.post('/api/todos', todo);
-    	
+
     	}else {
     		request = $http.put('/api/todos/' + todo._id, todo).then(function(result){
     			todo = result.data.todo;
@@ -27,6 +27,7 @@ angular.module('todoListApp')
     	}
     	queue.push(request);
     });
+    //this resolves all promises before returning results
     return $q.all(queue).then(function(results){
     	console.log(todos.length + "many todos were saved");
     });

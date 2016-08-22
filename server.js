@@ -20,9 +20,9 @@ app.use('/', express.static('public'));
 app.use('/api', router);
 
 
-//API Routes (Grabbing info from the database)
+//API ROUTES(Grabbing info from the database)
 
-//GET 
+//GET - main 
 router.get('/todos', function (req, res){
 	Todo.find({}, function(err, todos){
 		if(err){
@@ -59,12 +59,10 @@ router.put('/todos/:id', function(req, res) {
   });
 });
 
+//
+
 
 //TODO; add Delete route
-
-
-
-
 
 
 app.listen(3000, function(){

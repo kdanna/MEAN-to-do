@@ -1,5 +1,4 @@
 // 'use strict';
-
 angular.module('todoListApp')
 .controller('mainCtrl', function($scope, dataService){
   

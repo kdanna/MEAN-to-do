@@ -1,4 +1,17 @@
 // 'use strict';
+angular.module('todoListApp')
+.config(function($routeProvider){
+    $routeProvider
+      .when('/', {
+        templateUrl: 'templates/indexTemplate.html',
+        controller: 'todoCtrl'
+      })
+      .when('/about_me', {
+        templateUrl: 'templates/about_me.html',
+        controller: 'todoCtrl'
+      });
+});
+
 
 angular.module('todoListApp')
 .controller('todoCtrl', function($scope, dataService) {
